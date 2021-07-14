@@ -18,6 +18,11 @@ These instructions will give you a copy of the project up and running on your lo
 - Build and start the server:
   ```npm run start```
 
+### Test Plan
+- Use curl to test the end points.
+  * Unit tests have not been setup as there is minimal "business logic".
+  * End-to-end tests can be done manually with curl as this is a small app.
+
 ### Style
 - Run prettier with:
   ```npm run pretty```
@@ -26,7 +31,7 @@ These instructions will give you a copy of the project up and running on your lo
 
 ## TODO
 - Switch to ENV_VARIABLES for config
-- Add validation
+- Return validation based errors to end user
 - Add Auth
 - Add tests
 
