@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "strict": true,
+    "allowJs": true,
+    "checkJs": true, 
+    "declaration": true,
+    "removeComments": true,
+    "noImplicitAny": true,
+    "outDir": "dist/",
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+  },
+  "files": [
+    "./node_modules/@types/node/index.d.ts",
+    "./node_modules/@types/mongodb/index.d.ts",
+    "./node_modules/@types/express/index.d.ts"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "typings/*",
+    "node_modules",
+    "**/*.test.ts",
+    "test/*",
+    ".babelrc"
+  ]
+}
