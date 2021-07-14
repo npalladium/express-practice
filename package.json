@@ -1,6 +1,6 @@
 {
   "name": "express-practice",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "RESTful API with Node, Express, Mongo and TypeScript.",
   "main": "index.js",
   "scripts": {
