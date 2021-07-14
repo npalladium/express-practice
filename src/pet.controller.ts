@@ -1,5 +1,5 @@
 import express from 'express';
-import IPet from './pet.interface';
+import IPetDocument from './petmongo.interface';
 import PetModel from './pet.model';
 import { Document, CallbackError } from 'mongoose';
 
@@ -19,10 +19,14 @@ class PetsController {
   getAllPets = (req: express.Request, res: express.Response) => {
     PetModel.find()
       .lean()
-      .exec(function (err: CallbackError, pets: IPet[]) {
+      .exec(function (err: CallbackError, pets: IPetDocument[]) {
         if (err) {
           console.log(err);
           return res.status(500).send({ error: 'Query failed' });
+        }
+        for (const pet of pets) {
+          delete pet.__v;
+          delete pet._id;
         }
         return res.send(JSON.stringify(pets));
       });
