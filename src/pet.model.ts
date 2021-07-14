@@ -1,17 +1,5 @@
 import { Document, Schema, model } from 'mongoose';
-
-export enum PetAnimals {
-  Dog = 1,
-  Cat,
-  GoldFish,
-}
-
-export interface IPet {
-  id: number;
-  name: string;
-  category: PetAnimals;
-  status?: 'available' | 'unavailable';
-}
+import IPet from './pet.interface';
 
 const petSchema = new Schema<IPet>(
   {
@@ -22,4 +10,6 @@ const petSchema = new Schema<IPet>(
   },
 );
 
-export const PetModel = model<IPet>('Pet', petSchema);
+const PetModel = model<IPet>('Pet', petSchema);
+
+export default PetModel;
