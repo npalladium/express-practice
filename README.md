@@ -24,5 +24,13 @@ These instructions will give you a copy of the project up and running on your lo
 - Run linter with:
   ```npm run lint```
 
+## TODO
+- Switch to ENV_VARIABLES for config
+- Modularise app better
+- Add validation
+- Add Auth
+- Add tests
+- Refactor to App class
+
 ## License
 The code in this repository is provided under the MIT License.
