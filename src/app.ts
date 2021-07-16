@@ -4,7 +4,7 @@ import express from 'express';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
 import config from './config';
-import Controller from './controller.interface';
+import Controller from './common/controller.interface';
 
 class App {
   public application: express.Application;

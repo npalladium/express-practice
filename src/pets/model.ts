@@ -1,5 +1,5 @@
 import { Document, Schema, model } from 'mongoose';
-import Pet from './pet.interface';
+import Pet from './interface';
 
 const options = {
   toJSON: {
