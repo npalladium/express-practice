@@ -40,7 +40,7 @@ class App {
 
   private initializeControllers(controllers: Controller[]): void {
     controllers.forEach(controller => {
-      this.application.use('/', controller.router);
+      this.application.use(config.BASE_URL, controller.router);
     });
   }
 
