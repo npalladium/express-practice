@@ -1,6 +1,10 @@
 # Express Practice
 RESTful API with Node, Express, Mongo and TypeScript. Built as a part of onboarding activities.
 
+## Code Structure
+
+![code structure](./images/deps.png)
+
 ## Getting Started
 
 These instructions will give you a copy of the project up and running on your local machine.
