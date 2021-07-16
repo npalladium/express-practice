@@ -1,4 +1,5 @@
 import { Document, Schema, model } from 'mongoose';
+
 import Pet from './interface';
 
 const options = {

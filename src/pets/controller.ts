@@ -1,7 +1,8 @@
 import express from 'express';
 import { Document, CallbackError } from 'mongoose';
-import PetDocument from './mongo.interface';
+
 import PetModel from './model';
+import PetDocument from './mongo.interface';
 
 class PetsController {
   public path = '/';

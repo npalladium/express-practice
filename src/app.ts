@@ -1,10 +1,11 @@
-import fs from 'fs';
-import path from 'path';
 import express from 'express';
-import morgan from 'morgan';
+import fs from 'fs';
 import mongoose from 'mongoose';
-import config from './config';
+import morgan from 'morgan';
+import path from 'path';
+
 import Controller from './common/controller.interface';
+import config from './config';
 
 class App {
   public application: express.Application;

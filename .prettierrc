@@ -9,6 +9,8 @@
   "quoteProps": "as-needed",
   "arrowParens": "avoid",
   "proseWrap": "always",
+  "importOrder": ["^@config/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
   "overrides": [
     {
       "files": "*.ts",

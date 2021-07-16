@@ -1,4 +1,5 @@
 import { ObjectId } from 'mongoose';
+
 import Pet from './interface';
 
 interface PetDocument extends Pet {
