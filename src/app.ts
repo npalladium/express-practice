@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import express from 'express';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
@@ -23,18 +25,23 @@ class App {
     let db = mongoose.connection;
     db.on('error', console.error.bind(console, 'MongoDB Connection error'));
   }
-  private initializeMiddlewares() {
-    this.application.use(morgan('tiny'));
+
+  private initializeMiddlewares(): void {
+    const requestLogStream = fs.createWriteStream(path.join(__dirname, 'requests.log'), {
+      flags: 'a',
+    });
+    const options = { stream: requestLogStream };
+    this.application.use(morgan('tiny', options));
     this.application.use(express.json());
   }
 
-  private initializeControllers(controllers: IController[]) {
-    controllers.forEach(controller => {
+  private initializeControllers(controllers: IController[]): void {
+    controllers.forEach((controller) => {
       this.application.use('/', controller.router);
     });
   }
 
-  public listen() {
+  public listen(): void {
     this.application.listen(this.port, () => {
       console.log(`App listening on the port ${this.port}`);
     });
