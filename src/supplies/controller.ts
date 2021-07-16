@@ -2,11 +2,11 @@ import express from 'express';
 import { Document, CallbackError } from 'mongoose';
 
 import config from '../config';
-import PetModel from './model';
-import PetDocument from './mongo.interface';
+import SuppliesModel from './model';
+import SuppliesDocument from './mongo.interface';
 
-class PetsController {
-  public path = config.PETS_URL;
+class SuppliesController {
+  public path = config.SUPPLIES_URL;
 
   public router = express.Router();
 
@@ -15,14 +15,14 @@ class PetsController {
   }
 
   public initializeRoutes(): void {
-    this.router.get(this.path, this.getAllPets);
-    this.router.post(this.path, this.addAPet);
+    this.router.get(this.path, this.getAllSupplies);
+    this.router.post(this.path, this.addSupplies);
   }
 
-  getAllPets = (req: express.Request, res: express.Response): void => {
-    PetModel.find()
+  getAllSupplies = (req: express.Request, res: express.Response): void => {
+    SuppliesModel.find()
       .lean()
-      .exec((err: CallbackError, pets: PetDocument[]) => {
+      .exec((err: CallbackError, pets: SuppliesDocument[]) => {
         if (err) {
           console.log(err);
           return res.status(500).send({ error: 'Query failed' });
@@ -35,8 +35,8 @@ class PetsController {
       });
   };
 
-  addAPet = (req: express.Request, res: express.Response): void => {
-    PetModel.create(req.body, (err: CallbackError, pet: Document) => {
+  addSupplies = (req: express.Request, res: express.Response): void => {
+    SuppliesModel.create(req.body, (err: CallbackError, pet: Document) => {
       if (err) {
         console.log(err);
         return res.status(500).send({ error: 'Failed insert' });
@@ -46,4 +46,4 @@ class PetsController {
   };
 }
 
-export default PetsController;
+export default SuppliesController;
