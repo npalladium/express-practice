@@ -15,6 +15,8 @@ These instructions will give you a copy of the project up and running on your lo
   ```git clone https://github.com/npalladium/express-practice.git```
 - Install the dependencies:
   ```npm install --include=dev```
+- Setup .env with MONGO_URL:
+  ```mv sample.env .env    # in case of no auth default mongo```
 - Build and start the server:
   ```npm run start```
 
@@ -30,7 +32,6 @@ These instructions will give you a copy of the project up and running on your lo
   ```npm run lint```
 
 ## TODO
-- Switch to ENV_VARIABLES for config
 - Return validation based errors to end user
 - Add Auth
 - Add tests
