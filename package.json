@@ -11,7 +11,8 @@
     "clean": "rm -rf src/**/*.js src/**/*.map",
     "pretty": "node_modules/.bin/prettier -w src/**/*.ts",
     "lint": "./node_modules/.bin/eslint 'src/**/**.ts'",
-    "lint-fix": "./node_modules/.bin/eslint --fix src/**/*.ts"
+    "lint-fix": "./node_modules/.bin/eslint --fix src/**/*.ts",
+	"precommit": "npm run pretty && npm run lint-fix"
   },
   "repository": {
     "type": "git",
