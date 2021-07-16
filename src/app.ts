@@ -1,4 +1,5 @@
 import express from 'express';
+import morgan from 'morgan';
 import mongoose from 'mongoose';
 import IPet from './pet.interface';
 import PetModel from './pet.model';
@@ -23,6 +24,7 @@ class App {
     db.on('error', console.error.bind(console, 'MongoDB Connection error'));
   }
   private initializeMiddlewares() {
+    this.application.use(morgan('tiny'));
     this.application.use(express.json());
   }
 
