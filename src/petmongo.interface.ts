@@ -1,18 +1,9 @@
 import { ObjectId } from 'mongoose';
+import IPet from './pet.interface';
 
-enum PetAnimals {
-  Dog = 1,
-  Cat,
-  GoldFish,
-}
-
-interface IPetDocument {
+interface IPetDocument extends IPet {
   _id?: ObjectId;
   __v?: number;
-  id: number;
-  name: string;
-  category: PetAnimals;
-  status?: 'available' | 'unavailable';
 }
 
 export default IPetDocument;
