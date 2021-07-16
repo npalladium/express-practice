@@ -4,11 +4,11 @@ enum PetAnimals {
   GoldFish,
 }
 
-interface IPet {
+interface Pet {
   id: number;
   name: string;
   category: PetAnimals;
   status?: 'available' | 'unavailable';
 }
 
-export default IPet;
+export default Pet;

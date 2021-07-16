@@ -1,9 +1,9 @@
 import { ObjectId } from 'mongoose';
-import IPet from './pet.interface';
+import Pet from './pet.interface';
 
-interface IPetDocument extends IPet {
+interface PetDocument extends Pet {
   _id?: ObjectId;
   __v?: number;
 }
 
-export default IPetDocument;
+export default PetDocument;

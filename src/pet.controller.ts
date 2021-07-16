@@ -1,6 +1,6 @@
 import express from 'express';
 import { Document, CallbackError } from 'mongoose';
-import IPetDocument from './petmongo.interface';
+import PetDocument from './petmongo.interface';
 import PetModel from './pet.model';
 
 class PetsController {
@@ -20,7 +20,7 @@ class PetsController {
   getAllPets = (req: express.Request, res: express.Response): void => {
     PetModel.find()
       .lean()
-      .exec((err: CallbackError, pets: IPetDocument[]) => {
+      .exec((err: CallbackError, pets: PetDocument[]) => {
         if (err) {
           console.log(err);
           return res.status(500).send({ error: 'Query failed' });

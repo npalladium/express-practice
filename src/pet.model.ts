@@ -1,5 +1,5 @@
 import { Document, Schema, model } from 'mongoose';
-import IPet from './pet.interface';
+import Pet from './pet.interface';
 
 const options = {
   toJSON: {
@@ -11,7 +11,7 @@ const options = {
   },
 };
 
-const petSchema = new Schema<IPet>(
+const petSchema = new Schema<Pet>(
   {
     id: { type: Number, required: true, unique: true, dropDups: true },
     category: { type: Number, required: true },
@@ -21,6 +21,6 @@ const petSchema = new Schema<IPet>(
   options,
 );
 
-const PetModel = model<IPet>('Pet', petSchema);
+const PetModel = model<Pet>('Pet', petSchema);
 
 export default PetModel;

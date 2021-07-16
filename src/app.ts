@@ -4,14 +4,14 @@ import express from 'express';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
 import config from './config';
-import IController from './controller.interface';
+import Controller from './controller.interface';
 
 class App {
   public application: express.Application;
 
   public port: number;
 
-  constructor(port: number, controllers: IController[]) {
+  constructor(port: number, controllers: Controller[]) {
     this.application = express();
     this.port = port;
     this.initializeDbConnection();
@@ -38,7 +38,7 @@ class App {
     this.application.use(express.json());
   }
 
-  private initializeControllers(controllers: IController[]): void {
+  private initializeControllers(controllers: Controller[]): void {
     controllers.forEach(controller => {
       this.application.use('/', controller.router);
     });

@@ -1,9 +1,9 @@
 import express from 'express';
 
-interface IController {
+interface Controller {
   path: string;
   router: express.Router;
   initializeRoutes(): void;
 }
 
-export default IController;
+export default Controller;
