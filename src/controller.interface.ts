@@ -1,7 +1,7 @@
 import express from 'express';
 
 interface IController {
-  path: String;
+  path: string;
   router: express.Router;
   initializeRoutes(): void;
 }

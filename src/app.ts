@@ -3,16 +3,15 @@ import path from 'path';
 import express from 'express';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
-import IPet from './pet.interface';
-import PetModel from './pet.model';
 import config from './config';
 import IController from './controller.interface';
 
 class App {
   public application: express.Application;
-  public port: Number;
 
-  constructor(port: Number, controllers: IController[]) {
+  public port: number;
+
+  constructor(port: number, controllers: IController[]) {
     this.application = express();
     this.port = port;
     this.initializeDbConnection();
@@ -21,8 +20,11 @@ class App {
   }
 
   private initializeDbConnection(): void {
-    mongoose.connect(config.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
-    let db = mongoose.connection;
+    mongoose.connect(config.MONGO_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    const db = mongoose.connection;
     db.on('error', console.error.bind(console, 'MongoDB Connection error'));
   }
 

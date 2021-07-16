@@ -1,5 +1,5 @@
-const port: Number = 8080;
-const mongo_url: string = 'mongodb://localhost:27017/pets';
+const port = 8080;
+const mongo_url = 'mongodb://localhost:27017/pets';
 
 const config = {
   PORT: port,

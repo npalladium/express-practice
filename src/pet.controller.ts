@@ -1,25 +1,26 @@
 import express from 'express';
+import { Document, CallbackError } from 'mongoose';
 import IPetDocument from './petmongo.interface';
 import PetModel from './pet.model';
-import { Document, CallbackError } from 'mongoose';
 
 class PetsController {
   public path = '/';
+
   public router = express.Router();
 
   constructor() {
     this.initializeRoutes();
   }
 
-  public initializeRoutes() {
+  public initializeRoutes(): void {
     this.router.get(this.path, this.getAllPets);
     this.router.post(this.path, this.addAPet);
   }
 
-  getAllPets = (req: express.Request, res: express.Response) => {
+  getAllPets = (req: express.Request, res: express.Response): void => {
     PetModel.find()
       .lean()
-      .exec(function (err: CallbackError, pets: IPetDocument[]) {
+      .exec((err: CallbackError, pets: IPetDocument[]) => {
         if (err) {
           console.log(err);
           return res.status(500).send({ error: 'Query failed' });
@@ -30,17 +31,17 @@ class PetsController {
         }
         return res.send(JSON.stringify(pets));
       });
-  }
+  };
 
-  addAPet = (req: express.Request, res: express.Response) => {
-    PetModel.create(req.body, function (err: CallbackError, pet: Document) {
+  addAPet = (req: express.Request, res: express.Response): void => {
+    PetModel.create(req.body, (err: CallbackError, pet: Document) => {
       if (err) {
         console.log(err);
         return res.status(500).send({ error: 'Failed insert' });
       }
       return res.status(201).send(JSON.stringify(pet));
     });
-  }
+  };
 }
 
 export default PetsController;

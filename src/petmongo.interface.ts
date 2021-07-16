@@ -1,3 +1,5 @@
+import { ObjectId } from 'mongoose';
+
 enum PetAnimals {
   Dog = 1,
   Cat,
@@ -5,8 +7,8 @@ enum PetAnimals {
 }
 
 interface IPetDocument {
-  _id?: any;
-  __v?: Number;
+  _id?: ObjectId;
+  __v?: number;
   id: number;
   name: string;
   category: PetAnimals;
