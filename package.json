@@ -10,8 +10,8 @@
     "start": "tsc --project ./tsconfig.json && nodemon --trace-warnings --exec babel-node dist",
     "clean": "rm -rf src/**/*.js src/**/*.map",
     "pretty": "node_modules/.bin/prettier -w src/**/*.ts",
-    "lint": "./node_modules/.bin/eslint -c .eslintrc.js 'src/**/**.ts'",
-    "lint-fix": "./node_modules/.bin/eslint --fix -c .eslintrc.js src/**/*.ts -t verbose"
+    "lint": "./node_modules/.bin/eslint 'src/**/**.ts'",
+    "lint-fix": "./node_modules/.bin/eslint --fix src/**/*.ts"
   },
   "repository": {
     "type": "git",
@@ -25,7 +25,12 @@
     "@types/mongodb": "^3.6.20",
     "@types/morgan": "^1.9.3",
     "@types/node": "^16.3.2",
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
     "eslint": "^7.30.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.23.4",
     "nodemon": "^2.0.12",
     "onchange": "^7.1.0",
     "prettier": "^2.3.2",
