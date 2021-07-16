@@ -20,6 +20,7 @@ class App {
   }
 
   private initializeDbConnection(): void {
+    mongoose.set('useCreateIndex', true);
     mongoose.connect(config.MONGO_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -38,7 +39,7 @@ class App {
   }
 
   private initializeControllers(controllers: IController[]): void {
-    controllers.forEach((controller) => {
+    controllers.forEach(controller => {
       this.application.use('/', controller.router);
     });
   }

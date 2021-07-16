@@ -13,7 +13,7 @@ const options = {
 
 const petSchema = new Schema<IPet>(
   {
-    id: { type: Number, required: true },
+    id: { type: Number, required: true, unique: true, dropDups: true },
     category: { type: Number, required: true },
     name: { type: String, required: true },
     status: String,
